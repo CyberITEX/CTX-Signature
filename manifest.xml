@@ -9,7 +9,7 @@
   <ProviderName>CyberITEX</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="CyberITEX Email Signature"/>
-  <Description DefaultValue="Automatically inserts the CyberITEX company signature on new emails and replies."/>
+  <Description DefaultValue="Automatically inserts the CyberITEX company signature on new emails."/>
   <IconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
   <SupportUrl DefaultValue="https://cyberitex.github.io/CTX-Signature"/>
@@ -41,11 +41,12 @@
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
   </Rule>
 
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
-    xsi:type="VersionOverridesV1_1">
+  <!-- V1_0 required by schema as outer wrapper; also provides a ribbon button fallback -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
 
     <Requirements>
-      <bt:Sets DefaultMinVersion="1.10">
+      <bt:Sets DefaultMinVersion="1.3">
         <bt:Set Name="Mailbox"/>
       </bt:Sets>
     </Requirements>
@@ -53,16 +54,28 @@
     <Hosts>
       <Host xsi:type="MailHost">
         <DesktopFormFactor>
-          <Runtimes>
-            <Runtime resid="WebViewRuntime.Url"/>
-            <Runtime resid="JSRuntime.Url"/>
-          </Runtimes>
           <FunctionFile resid="Commands.Url"/>
-          <ExtensionPoint xsi:type="Events">
-            <LaunchEvents>
-              <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
-              <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewMessageCompose"/>
-            </LaunchEvents>
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="msgComposeGroup">
+                <Label resid="GroupLabel"/>
+                <Control xsi:type="Button" id="msgComposeOpenPane">
+                  <Label resid="GroupLabel"/>
+                  <Supertip>
+                    <Title resid="GroupLabel"/>
+                    <Description resid="GroupLabel.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.32x32"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.32x32"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="WebViewRuntime.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
@@ -74,7 +87,6 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Commands.Url"       DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.html"/>
-        <bt:Url id="JSRuntime.Url"      DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.js"/>
         <bt:Url id="WebViewRuntime.Url" DefaultValue="https://cyberitex.github.io/CTX-Signature/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
@@ -85,5 +97,51 @@
       </bt:LongStrings>
     </Resources>
 
+    <!-- V1_1 nested inside V1_0 — enables event-based auto-insert (Mailbox 1.10+) -->
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+      xsi:type="VersionOverridesV1_1">
+
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.10">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <Runtimes>
+              <Runtime resid="WebViewRuntime.Url"/>
+              <Runtime resid="JSRuntime.Url"/>
+            </Runtimes>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="Events">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
+                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewMessageCompose"/>
+              </LaunchEvents>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.32x32" DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url"       DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.html"/>
+          <bt:Url id="JSRuntime.Url"      DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://cyberitex.github.io/CTX-Signature/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Signature"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="GroupLabel.Tooltip" DefaultValue="CyberITEX Email Signature"/>
+        </bt:LongStrings>
+      </Resources>
+
+    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
