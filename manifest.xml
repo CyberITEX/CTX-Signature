@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xsi:type="MailApp">
+
+  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>CyberITEX</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="CyberITEX Email Signature"/>
+  <Description DefaultValue="Automatically inserts the CyberITEX company signature on new emails and replies."/>
+  <IconUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
+  <SupportUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature"/>
+
+  <AppDomains>
+    <AppDomain>https://ahmedali71x.github.io</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://ahmedali71x.github.io/CTX-Signature/taskpane.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+      xsi:type="VersionOverridesV1_1">
+
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.10">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <Runtimes>
+            <Runtime resid="JSRuntime.Url"/>
+            <Runtime resid="WebViewRuntime.Url"/>
+          </Runtimes>
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="Events">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
+                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewMessageCompose"/>
+              </LaunchEvents>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.32x32" DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url"       DefaultValue="https://ahmedali71x.github.io/CTX-Signature/commands.html"/>
+          <bt:Url id="JSRuntime.Url"      DefaultValue="https://ahmedali71x.github.io/CTX-Signature/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://ahmedali71x.github.io/CTX-Signature/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Signature"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="GroupLabel.Tooltip" DefaultValue="CyberITEX Email Signature"/>
+        </bt:LongStrings>
+      </Resources>
+
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
