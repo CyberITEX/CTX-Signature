@@ -6,7 +6,7 @@ const SIGNATURE_HTML = `
   style="font-family:Calibri,Arial,sans-serif;font-size:11pt;color:#333333;margin-top:12px;">
   <tr>
     <td style="padding-right:18px;vertical-align:top;padding-top:2px;">
-      <img src="https://ahmedali71x.github.io/CTX-Signature/assets/logo.png"
+      <img src="https://cyberitex.github.io/CTX-Signature/assets/logo.png"
            width="100" alt="CyberITEX" style="display:block;"/>
     </td>
     <td style="border-left:3px solid #0078D4;padding-left:16px;vertical-align:top;line-height:1.8;">

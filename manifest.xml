@@ -10,12 +10,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="CyberITEX Email Signature"/>
   <Description DefaultValue="Automatically inserts the CyberITEX company signature on new emails and replies."/>
-  <IconUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
-  <SupportUrl DefaultValue="https://ahmedali71x.github.io/CTX-Signature"/>
+  <IconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
+  <SupportUrl DefaultValue="https://cyberitex.github.io/CTX-Signature"/>
 
   <AppDomains>
-    <AppDomain>https://ahmedali71x.github.io</AppDomain>
+    <AppDomain>https://cyberitex.github.io</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -31,7 +31,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://ahmedali71x.github.io/CTX-Signature/taskpane.html"/>
+        <SourceLocation DefaultValue="https://cyberitex.github.io/CTX-Signature/taskpane.html"/>
       </DesktopSettings>
     </Form>
   </FormSettings>
@@ -72,12 +72,12 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="Icon.32x32" DefaultValue="https://ahmedali71x.github.io/CTX-Signature/assets/logo-32.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Commands.Url"       DefaultValue="https://ahmedali71x.github.io/CTX-Signature/commands.html"/>
-          <bt:Url id="JSRuntime.Url"      DefaultValue="https://ahmedali71x.github.io/CTX-Signature/commands.js"/>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://ahmedali71x.github.io/CTX-Signature/taskpane.html"/>
+          <bt:Url id="Commands.Url"       DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.html"/>
+          <bt:Url id="JSRuntime.Url"      DefaultValue="https://cyberitex.github.io/CTX-Signature/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://cyberitex.github.io/CTX-Signature/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Signature"/>
