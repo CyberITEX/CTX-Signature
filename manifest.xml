@@ -4,7 +4,7 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
 
-  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+  <Id>dd41f735-583f-4690-9ae0-94f1675d9352</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>CyberITEX</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
@@ -41,7 +41,6 @@
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
   </Rule>
 
-  <!-- V1_0 required by schema as outer wrapper; also provides a ribbon button fallback -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
     xsi:type="VersionOverridesV1_0">
 
@@ -97,7 +96,6 @@
       </bt:LongStrings>
     </Resources>
 
-    <!-- V1_1 nested inside V1_0 — enables event-based auto-insert (Mailbox 1.10+) -->
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
       xsi:type="VersionOverridesV1_1">
 
