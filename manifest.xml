@@ -107,17 +107,18 @@
 
       <Hosts>
         <Host xsi:type="MailHost">
+          <Runtimes>
+            <Runtime resid="WebViewRuntime.Url"/>
+            <Runtime resid="JSRuntime.Url"/>
+          </Runtimes>
           <DesktopFormFactor>
-            <Runtimes>
-              <Runtime resid="WebViewRuntime.Url"/>
-              <Runtime resid="JSRuntime.Url"/>
-            </Runtimes>
             <FunctionFile resid="Commands.Url"/>
-            <ExtensionPoint xsi:type="Events">
+            <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
                 <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewMessageCompose"/>
               </LaunchEvents>
+              <SourceLocation resid="JSRuntime.Url"/>
             </ExtensionPoint>
           </DesktopFormFactor>
         </Host>
