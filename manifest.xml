@@ -5,7 +5,7 @@
   xsi:type="MailApp">
 
   <Id>dd41f735-583f-4690-9ae0-94f1675d9352</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>CyberITEX</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="CyberITEX Email Signature"/>
