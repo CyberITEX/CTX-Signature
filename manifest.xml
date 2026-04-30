@@ -108,8 +108,8 @@
       <Hosts>
         <Host xsi:type="MailHost">
           <Runtimes>
-            <Runtime resid="WebViewRuntime.Url"/>
             <Runtime resid="JSRuntime.Url"/>
+            <Runtime resid="WebViewRuntime.Url"/>
           </Runtimes>
           <DesktopFormFactor>
             <FunctionFile resid="Commands.Url"/>
