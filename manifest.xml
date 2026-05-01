@@ -5,10 +5,10 @@
   xsi:type="MailApp">
 
   <Id>dd41f735-583f-4690-9ae0-94f1675d9352</Id>
-  <Version>1.0.0.1</Version>
+  <Version>1.0.0.3</Version>
   <ProviderName>CyberITEX</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="CyberITEX Email Signature"/>
+  <DisplayName DefaultValue="CTX-Stamp"/>
   <Description DefaultValue="Automatically inserts the CyberITEX company signature on new emails."/>
   <IconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://cyberitex.github.io/CTX-Signature/assets/logo-32.png"/>
@@ -92,7 +92,7 @@
         <bt:String id="GroupLabel" DefaultValue="Signature"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GroupLabel.Tooltip" DefaultValue="CyberITEX Email Signature"/>
+        <bt:String id="GroupLabel.Tooltip" DefaultValue="CTX-Stamp"/>
       </bt:LongStrings>
     </Resources>
 
@@ -108,11 +108,10 @@
       <Hosts>
         <Host xsi:type="MailHost">
           <Runtimes>
-            <Runtime resid="JSRuntime.Url"/>
-            <Runtime resid="WebViewRuntime.Url"/>
+            <Runtime resid="JSRuntime.Url" lifetime="short"/>
+            <Runtime resid="WebViewRuntime.Url" lifetime="long"/>
           </Runtimes>
           <DesktopFormFactor>
-            <FunctionFile resid="Commands.Url"/>
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
@@ -137,7 +136,7 @@
           <bt:String id="GroupLabel" DefaultValue="Signature"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="GroupLabel.Tooltip" DefaultValue="CyberITEX Email Signature"/>
+          <bt:String id="GroupLabel.Tooltip" DefaultValue="CTX-Stamp"/>
         </bt:LongStrings>
       </Resources>
 

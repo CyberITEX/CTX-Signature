@@ -26,9 +26,17 @@ const SIGNATURE_HTML = `
 </table>`;
 
 function onNewMessageCompose(event) {
+  var done = false;
+  function complete() {
+    if (!done) { done = true; event.completed({ allowEvent: true }); }
+  }
+
+  // Fallback: if setSignatureAsync never calls back, release the event
+  setTimeout(complete, 4000);
+
   Office.context.mailbox.item.notificationMessages.addAsync("sig-debug", {
     type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
-    message: "CTX-Signature handler fired",
+    message: "CTX-Stamp handler fired",
     persistent: false
   });
 
@@ -42,7 +50,7 @@ function onNewMessageCompose(event) {
           message: "Signature failed: " + result.error.message
         });
       }
-      event.completed({ allowEvent: true });
+      complete();
     }
   );
 }
