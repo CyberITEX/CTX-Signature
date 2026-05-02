@@ -31,27 +31,12 @@ function onNewMessageCompose(event) {
     if (!done) { done = true; event.completed({ allowEvent: true }); }
   }
 
-  // Fallback: if setSignatureAsync never calls back, release the event
   setTimeout(complete, 4000);
-
-  Office.context.mailbox.item.notificationMessages.addAsync("sig-debug", {
-    type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
-    message: "CTX-Stamp handler fired",
-    persistent: false
-  });
 
   Office.context.mailbox.item.body.setSignatureAsync(
     SIGNATURE_HTML,
     { coercionType: Office.CoercionType.Html },
-    function (result) {
-      if (result.status === Office.AsyncResultStatus.Failed) {
-        Office.context.mailbox.item.notificationMessages.replaceAsync("sig-debug", {
-          type: Office.MailboxEnums.ItemNotificationMessageType.ErrorMessage,
-          message: "Signature failed: " + result.error.message
-        });
-      }
-      complete();
-    }
+    function () { complete(); }
   );
 }
 

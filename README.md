@@ -1,5 +1,20 @@
 # CTX-Signature — CyberITEX Outlook Email Signature Add-in
 
+## Quick Reference URLs
+
+| Resource | URL |
+|---|---|
+| **Manifest** | `https://cyberitex.github.io/CTX-Signature/manifest.xml` |
+| **commands.js** | `https://cyberitex.github.io/CTX-Signature/commands.js` |
+| **commands.html** | `https://cyberitex.github.io/CTX-Signature/commands.html` |
+| **taskpane.html** | `https://cyberitex.github.io/CTX-Signature/taskpane.html` |
+| **Logo (full)** | `https://cyberitex.github.io/CTX-Signature/assets/logo.png` |
+| **Logo (32px)** | `https://cyberitex.github.io/CTX-Signature/assets/logo-32.png` |
+
+> Use the **Manifest URL** when installing via Microsoft 365 Admin Center → Integrated Apps → Upload custom app.
+
+---
+
 An Microsoft Outlook Add-in that automatically inserts a static CyberITEX email signature whenever a new email or appointment is composed. Works on Outlook Web (OWA), New Outlook (Windows), and Classic Outlook (desktop).
 
 ---
