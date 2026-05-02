@@ -5,7 +5,7 @@
   xsi:type="MailApp">
 
   <Id>dd41f735-583f-4690-9ae0-94f1675d9352</Id>
-  <Version>1.0.0.4</Version>
+  <Version>1.0.0.5</Version>
   <ProviderName>CyberITEX</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
 
@@ -30,6 +30,14 @@
       <Set Name="Mailbox" MinVersion="1.5"/>
     </Sets>
   </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://cyberitex.github.io/CTX-Signature/taskpane.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
 
   <Permissions>ReadWriteItem</Permissions>
 
@@ -116,7 +124,7 @@
 
       <!-- 🔥 CRITICAL FIX -->
       <Requirements>
-        <bt:Sets DefaultMinVersion="1.12">
+        <bt:Sets DefaultMinVersion="1.10">
           <bt:Set Name="Mailbox"/>
         </bt:Sets>
       </Requirements>
