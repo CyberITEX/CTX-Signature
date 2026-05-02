@@ -26,6 +26,7 @@ const SIGNATURE_HTML = `
 </table>`;
 
 function onNewMessageCompose(event) {
+  console.log("[CTX-Signature] onNewMessageCompose triggered", new Date().toISOString());
   var done = false;
   function complete() {
     if (!done) { done = true; event.completed({ allowEvent: true }); }
