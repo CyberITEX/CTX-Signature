@@ -27,6 +27,11 @@ const SIGNATURE_HTML = `
 
 function onNewMessageCompose(event) {
   console.log("[CTX-Signature] onNewMessageCompose triggered", new Date().toISOString());
+  // DEBUG: visible marker — remove after confirming the function fires
+  Office.context.mailbox.item.body.prependAsync(
+    '<div style="color:red;font-weight:bold">[DEBUG] onNewMessageCompose fired: ' + new Date().toISOString() + '</div>',
+    { coercionType: Office.CoercionType.Html }
+  );
   var done = false;
   function complete() {
     if (!done) { done = true; event.completed({ allowEvent: true }); }
